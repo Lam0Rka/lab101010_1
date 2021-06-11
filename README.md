@@ -1,5 +1,5 @@
 ```sh
-$ pacman -S vagrant
+$ apt -S vagrant
 ```
 Смотрим на версию вагранта
 ```sh
@@ -70,7 +70,7 @@ $ vagrant validate
     ...
 запускаем вагрант с помощью виртуаль бокса
 $ vagrant status
-$ sudo pacman -S virtualbox
+$ sudo apt -S virtualbox
 $ sudo vagrant up --provider virtualbox
 	Bringing machine 'default' up with 'virtualbox' provider...
 	==> default: Box 'bento/ubuntu-19.10' could not be found. Attempting to find and install...
