@@ -1,17 +1,17 @@
 ```sh
 $ pacman -S vagrant
 ```
-
+Смотрим на версию вагранта
 ```sh
 $ vagrant version
     Vagrant 2.2.15
-
+Инициализация виртуальной машины
 $ vagrant init bento/ubuntu-19.10
 	A `Vagrantfile` has been placed in this directory. You are now
 	ready to `vagrant up` your first virtual environment! Please read
 	the comments in the Vagrantfile as well as documentation on
 	`vagrantup.com` for more information on using Vagrant.
-
+редактируем вагрант файл
 $ vim Vagrantfile
 $ vagrant init -f -m bento/ubuntu-19.10
 ```
@@ -19,7 +19,7 @@ $ vagrant init -f -m bento/ubuntu-19.10
 ```sh
 $ mkdir shared
 ```
-
+записываем в вагрант файл следющий текст (добавление конфигурации)
 ```sh
 $ cat > Vagrantfile <<EOF
 \$script = <<-SCRIPT
@@ -63,12 +63,12 @@ $ cat >> Vagrantfile <<EOF
 end
 EOF
 ```
-
+проверяем коректность файла вагрант
 ```sh
 $ vagrant validate
     Installing the 'vagrant-vbguest' plugin. This can take a few minutes...
     ...
-
+запускаем вагрант с помощью виртуаль бокса
 $ vagrant status
 $ sudo pacman -S virtualbox
 $ sudo vagrant up --provider virtualbox
@@ -76,7 +76,7 @@ $ sudo vagrant up --provider virtualbox
 	==> default: Box 'bento/ubuntu-19.10' could not be found. Attempting to find and install...
 	    default: Box Provider: virtualbox
         ...
-
+Просмотр порта
 $ vagrant port
     22 (guest) => 2222 (host)
 
@@ -84,7 +84,7 @@ $ vagrant status
 	Current machine states:
 	
 	default                   running (virtualbox)
-
+подключаемся к виртуальной машина
 $ vagrant ssh
 	  System information as of Thu 06 May 2021 05:59:28 PM UTC
 	
@@ -98,10 +98,10 @@ $ vagrant ssh
       vagrant@vagrant:~$ exit
         logout
         Connection to 127.0.0.1 closed.
-        
+Просмотр снимков виртуальной машины
 $ vagrant snapshot list
     ==> default: No snapshots have been taken yet!
-
+Добавление снимков
 $ vagrant snapshot push
 	==> default: Snapshotting the machine as 'push_1620324147_4207'...
 	==> default: Snapshot saved! You can restore the snapshot at any time by
@@ -111,7 +111,7 @@ $ vagrant snapshot push
 $ vagrant snapshot list
 	==> default: 
 	push_1620324147_4207
-
+Выключаем виртуальную машину
 $ vagrant halt
     ==> default: Attempting graceful shutdown of VM...
 
@@ -144,7 +144,7 @@ $ vagrant snapshot pop
     esxi.guest_disk_type = 'thin'
   end
 ```
-
+устанавливаем плагин Vmware и просматриваем эти плагины
 ```sh
 $ vagrant plugin install vagrant-vmware-esxi
     Installing the 'vagrant-vmware-esxi' plugin. This can take a few minutes...
